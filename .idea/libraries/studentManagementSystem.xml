@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="studentManagementSystem">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Java8Training/src/com/practice/java8/studentManagementSystem.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
