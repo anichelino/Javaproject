@@ -183,9 +183,9 @@ public class MainExecutor {
                 - Implement methods to read student and course data from files using the File I/O API.
                 - Use streams to process the data and populate the student and course objects accordingly.
 */
-        String fname="C:\\Users\\motto\\IdeaProjects\\Java8Training\\src\\com\\practice\\java8\\studentManagementSystem\\InputStudents";
+        String fname="/Users/gianlucamottola/IdeaProjects/JavaFirstSteps/Java8Training/src/com/practice/java8/studentManagementSystem/InputStudents";
         File inputStudents = new File(fname);
-        String fname2="C:\\Users\\motto\\IdeaProjects\\Java8Training\\src\\com\\practice\\java8\\studentManagementSystem\\InputCourses";
+        String fname2="/Users/gianlucamottola/IdeaProjects/JavaFirstSteps/Java8Training/src/com/practice/java8/studentManagementSystem/InputCourses";
 
 
         List<Course> coursesFromFileApi = RetrieveUtils.getCoursesFromFileApi(fname2, idProvider);
@@ -217,7 +217,7 @@ public class MainExecutor {
         //- Implement a method to find and return the student(s) with the longest name using the stream `reduce` operation.
 
         Student studentLongestName = allStudentList.stream().reduce(student1, (stud1, stud2) -> stud1.getName().length() > stud2.getName().length() ? stud1 : stud2);
-        //System.out.println("student with longest name : "+ studentLongestName);
+        System.out.println("student with longest name : "+ studentLongestName);
 
         //Task 27: Stream Short-Circuiting Operations
         //- Implement a method that checks if any student is enrolled in a specific course using short-circuiting operations like `anyMatch` or `findFirst`.
