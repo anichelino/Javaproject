@@ -96,6 +96,8 @@ public class Application {
         System.out.println("1 For finding project by name");
         System.out.println("2 For finding project by number");
 
+
+
         int userchoice= scanner.nextInt();
 
         switch (userchoice){
