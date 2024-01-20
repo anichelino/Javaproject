@@ -91,6 +91,7 @@ public class Application {
 
     private static Project findProject(Scanner scanner) throws ParseException {
 
+
         System.out.println("Enter either the name or the number of the project");
         System.out.println("1 For finding project by name");
         System.out.println("2 For finding project by number");
