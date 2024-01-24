@@ -69,23 +69,31 @@ public class Application {
     private static void expiredProject() {
         System.out.println("printing expired project");
         //TODO
+        // status is not finalised and deadline date is less than current date
 
     }
 
     private static void incompletedProject() {
         System.out.println("printing incompleted project");
         //TODO
-
+       // all the projects having status as not finalised
     }
 
     private static void finaliseProject(Scanner scanner) {
         System.out.println("Finalizing incomplete project");
         //TODO
+        //Step-1 find Project
+        //Step-2 if no due -> no generation invoice
+        //Step-3 otherwise print customer information & pending amount to be paid
+        //Step-4 update project status & completion date
     }
 
     private static void updateProject(Scanner scanner) {
         System.out.println("Updating project");
         //TODO
+        //Step -1 find project
+        //Step-2 Asking user to enter new deadline date
+        //Step-3 Update deadline date for the found project
 
     }
 
