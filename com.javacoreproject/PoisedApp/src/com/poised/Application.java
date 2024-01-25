@@ -69,31 +69,66 @@ public class Application {
     private static void expiredProject() {
         System.out.println("printing expired project");
         //TODO
+        ArrayList<Project> projectsExpired = new ArrayList<>();
         // status is not finalised and deadline date is less than current date
-
+        for (Project project:projects) {
+            if(project.getDeadlineDate().before(new Date())&&!project.getStatus().equals("Finalized")){
+                projectsExpired.add(project);
+            }
+        }
+        System.out.println(projectsExpired);
     }
 
     private static void incompletedProject() {
         System.out.println("printing incompleted project");
         //TODO
        // all the projects having status as not finalised
+        ArrayList<Project> projectsIncompleted = new ArrayList<>();
+        for (Project project:projects) {
+            if(!project.getStatus().equals("Finalized")){
+                projectsIncompleted.add(project);
+            }
+        }
+        System.out.println(projectsIncompleted);
     }
 
-    private static void finaliseProject(Scanner scanner) {
+    private static void finaliseProject(Scanner scanner) throws ParseException {
         System.out.println("Finalizing incomplete project");
         //TODO
         //Step-1 find Project
+        Project projectFound = findProject(scanner);
         //Step-2 if no due -> no generation invoice
         //Step-3 otherwise print customer information & pending amount to be paid
+        double remainingAmount = projectFound.getTotalFeeBeingCharged() - projectFound.getTotalFeePaid();
+        if (remainingAmount>0){
+            System.out.println("Invoice generated...");
+            System.out.println(projectFound.getCustomer()+"must still pay "+remainingAmount);
+        }
+        else{
+            System.out.println("For the project "+projectFound+"entire amount is paid");
+        }
         //Step-4 update project status & completion date
+        projectFound.setCompletionDate(new Date());
+        projectFound.setStatus("Finalized");
     }
 
-    private static void updateProject(Scanner scanner) {
+    private static void updateProject(Scanner scanner) throws ParseException {
         System.out.println("Updating project");
         //TODO
         //Step -1 find project
+        Project projectFound = findProject(scanner);
+
+
         //Step-2 Asking user to enter new deadline date
+        System.out.println("Enter new deadline date in MM/dd/yyyy of the project  "+projectFound);
+        scanner.nextLine();
+
+        SimpleDateFormat simpledateformat = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = simpledateformat.parse(scanner.nextLine());
+
         //Step-3 Update deadline date for the found project
+        projectFound.setDeadlineDate(date);
+        System.out.println("new project features: "+projectFound);
 
     }
 
